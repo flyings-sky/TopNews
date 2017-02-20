@@ -12,15 +12,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import andfans.com.andfans_csdn.Fragments.ZhiHuFragment;
-import andfans.com.andfans_csdn.Fragments.MineFragment;
 import andfans.com.andfans_csdn.Fragments.SystemSettingFragment;
 import andfans.com.andfans_csdn.Fragments.SoccerFragment;
 
@@ -36,7 +33,6 @@ public class MainActivity extends ActionBarActivity {
     private FragmentTransaction mFragmentTransaction;
     private SoccerFragment mSoccerFragment;
     private ZhiHuFragment mZhiHuFragment;
-    private MineFragment mMineFragment;
     private SystemSettingFragment mSystemSettingFragment;
     long editTime = 0;
 
@@ -106,21 +102,6 @@ public class MainActivity extends ActionBarActivity {
                             mFragmentTransaction.show(mSoccerFragment);
                         }
                         break;
-                    case R.id.id_menu_mine:
-//                        Toast.makeText(mContext,"点击了我的",Toast.LENGTH_SHORT).show();
-                        mTextView.setText("我的CSDN");
-//                        mToolbar.getMenu().findItem(R.id.id_menu_news).setVisible(true);
-//                        mToolbar.getMenu().findItem(R.id.id_menu_publish).setVisible(false);
-//                        mToolbar.getMenu().findItem(R.id.id_menu_search).setVisible(false);
-                        mFragmentTransaction = mFragmentManager.beginTransaction();
-                        HideFragment(mMineFragment);
-                        if(mMineFragment == null){
-                            mMineFragment = new MineFragment();
-                            mFragmentTransaction.add(R.id.id_main_frame,mMineFragment);
-                        }else {
-                            mFragmentTransaction.show(mMineFragment);
-                        }
-                        break;
                     case R.id.id_menu_system_settings:
 //                        Toast.makeText(mContext,"点击了设置",Toast.LENGTH_SHORT).show();
                         mTextView.setText("系统设置");
@@ -180,17 +161,12 @@ public class MainActivity extends ActionBarActivity {
             mFragmentTransaction.hide(mZhiHuFragment);
         }
 
-        if(fragment != mMineFragment&&mMineFragment != null){
-            mFragmentTransaction.hide(mMineFragment);
-        }
-
         if(fragment != mSystemSettingFragment&&mSystemSettingFragment != null){
             mFragmentTransaction.hide(mSystemSettingFragment);
         }
 
     }
-
-
+    
 //    private Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
 //        @Override
 //        public boolean onMenuItemClick(MenuItem item) {

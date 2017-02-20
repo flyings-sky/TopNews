@@ -20,14 +20,6 @@
         app:itemIconTint="@color/black"
         />
     <item
-        android:id="@+id/id_menu_mine"
-        android:title="@string/menu_mine"
-        android:icon="@drawable/mine"
-        android:checkable="true"
-        android.support.design:itemTextColor="@color/black"
-        app:itemIconTint="@color/black"
-        />
-    <item
         android:id="@+id/id_menu_system_settings"
         android:title="@string/menu_system_settings"
         android:icon="@drawable/system_settings"

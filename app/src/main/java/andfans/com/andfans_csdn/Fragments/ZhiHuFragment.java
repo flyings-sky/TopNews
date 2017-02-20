@@ -52,6 +52,10 @@ public class ZhiHuFragment extends Fragment {
         return view;
     }
 
+    public SwipeRefreshLayout getmRefreshLayout() {
+        return mRefreshLayout;
+    }
+
     private void getData() {
         ApiManage.getInstence().getZhihuApiService()
                 .getZhiHuNews()
@@ -167,9 +171,11 @@ public class ZhiHuFragment extends Fragment {
                     @Override
                     public void onNext(ZhiHuDaily zhiHuDaily) {
                         mAdapter.addItems(0,zhiHuDaily.getStories());
+
                     }
                 });
     }
+
     private void getLoadingData(Calendar current) {
         ApiManage.getInstence().getZhihuApiService()
                 .getLastNews(toStringDate(current))
